@@ -9,7 +9,7 @@ if [ ${#kuber} -ne 0 ]; then
 	sleep 120s
 fi
 
-echo 'password' > password.txt
+echo 'newpassword' > password.txt
 tr -d '\n' <password.txt >.strippedpassword.txt && mv .strippedpassword.txt password.txt
 kubectl create -f local-volumes.yaml
 kubectl create secret generic mysql-pass --from-file=password.txt
